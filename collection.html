@@ -6,36 +6,18 @@
     <title>Collection | lau4baak6</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        <head>
-    <meta charset="UTF-8">
-    <title>Collection | lau4baak6</title>
-    <style>
-        /* ... your existing styles ... */
-
-        .product-image {
-            width: 100%;           /* Makes image match the column width */
-            max-width: 400px;      /* Prevents it from getting too large on big screens */
-            aspect-ratio: 1 / 1;   /* Forces a perfect square */
-            object-fit: cover;     /* Crops the photo to fit the square without stretching */
-            display: block;
-            margin: 0 auto 1.5rem; /* Centers the image and adds space below */
-            filter: grayscale(10%);
-            transition: transform 0.4s ease;
-        }
-
-        .product-image:hover {
-            transform: scale(1.03);
-        }
-        
-        /* This ensures the grid handles the image sizes correctly */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            align-items: start;
-        }
-    </style>
-</head>
+        :root { --bg-color: #f9f8f5; --text-color: #2c2c2c; --accent-color: #8c8c8c; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', 'Noto Serif TC', serif; margin: 0; }
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; letter-spacing: 0.3rem; text-decoration: none; color: var(--text-color); }
+        nav a { text-decoration: none; color: var(--text-color); margin-left: 2rem; font-size: 0.9rem; }
+        .container { padding: 5% 10%; }
+        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 3rem; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; }
+        .product-card { text-align: center; }
+        .product-image { background: #eee; aspect-ratio: 1/1; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #aaa; font-style: italic; }
+        .product-card h3 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; font-weight: 500; }
+        .product-card p { font-size: 0.9rem; color: var(--accent-color); padding: 0 1rem; }
     </style>
 </head>
 <body>
