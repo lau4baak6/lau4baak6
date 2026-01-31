@@ -52,23 +52,44 @@
             position: absolute; left: 50%; transform: translateX(-50%);
         }
 
-        .container { padding: 10rem 10% 5%; }
-        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 1.5rem; text-align: center; letter-spacing: 0.2rem; }
+        .container { padding: 10rem 10% 5%; text-align: center; }
+        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.2rem; }
         
-        /* New styling for the intro text */
         .intro-text {
             font-family: 'Noto Serif TC', serif;
             max-width: 600px;
-            margin: 0 auto 5rem;
-            text-align: center;
+            margin: 0 auto 2rem;
             color: var(--accent-color);
             font-size: 0.95rem;
             line-height: 2;
             letter-spacing: 0.05rem;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; }
-        .product-card { text-align: center; margin-bottom: 2rem; }
+        /* Order Button Styling */
+        .order-btn {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border: 1px solid var(--text-color);
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .order-btn:hover { background-color: var(--text-color); color: white; }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05rem;
+            margin-bottom: 5rem;
+            line-height: 1.8;
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; text-align: center; }
+        .product-card { margin-bottom: 2rem; }
         
         .product-image {
             width: 100%; max-width: 400px; aspect-ratio: 1 / 1;
@@ -76,7 +97,6 @@
             filter: grayscale(10%); transition: transform 0.4s ease;
         }
 
-        /* Placeholder for items without images */
         div.product-image {
             background: #eee; display: flex; align-items: center; justify-content: center; color: #aaa; font-style: italic;
         }
@@ -86,7 +106,7 @@
         .product-card h3 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; font-weight: 500; }
         .product-card p { font-size: 0.9rem; color: var(--accent-color); padding: 0 1rem; line-height: 1.6; }
         
-        footer { text-align: center; padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
+        footer { padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
     </style>
 </head>
 <body>
@@ -113,6 +133,13 @@
         
         <div class="intro-text">
             我們選用安全性高的沙蠟，其顆粒性質令清潔變得極為方便，即使意外打瀉亦能輕易處理。您可以根據個人喜好隨意修剪燭芯長度，自由掌控燃燒時長，定義專屬於您的靜謐時光。
+        </div>
+
+        <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">Order Now</a>
+        
+        <div class="disclaimer">
+            *Send us a DM to Order<br>
+            Free Local Delivery over $400 HKD
         </div>
 
         <div class="grid">
