@@ -24,7 +24,6 @@
             z-index: 1000; 
         }
 
-        /* Dropdown Menu Styling */
         .dropdown { position: relative; display: inline-block; }
         .menu-icon {
             background: none; border: none; cursor: pointer; padding: 10px;
@@ -52,7 +51,38 @@
             position: absolute; left: 50%; transform: translateX(-50%);
         }
 
-        .container { padding: 10rem 10% 5%; text-align: center; }
+        /* Year Selector - Adaptive Layout */
+        .side-selector {
+            position: fixed;
+            left: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 900;
+        }
+
+        .side-selector a {
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            border-left: 1px solid transparent;
+        }
+
+        .side-selector a.active {
+            color: var(--text-color);
+            font-weight: 500;
+            border-left: 1px solid var(--text-color);
+        }
+
+        .container { padding: 10rem 12% 5%; text-align: center; }
         h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.2rem; }
         
         .intro-text {
@@ -65,7 +95,6 @@
             letter-spacing: 0.05rem;
         }
 
-        /* Order Button Styling */
         .order-btn {
             display: inline-block;
             padding: 0.8rem 2.5rem;
@@ -106,17 +135,40 @@
         .product-card h3 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; font-weight: 500; }
         .product-card p { font-size: 0.9rem; color: var(--accent-color); padding: 0 1rem; line-height: 1.6; }
         
-        footer { padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
+        footer { padding: 4rem; font-size: 0.8rem; color: var(--accent-color); text-align: center;}
+
+        /* MOBILE ADAPTATION */
+        @media (max-width: 768px) {
+            .side-selector {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                padding: 7rem 0 0rem;
+                width: 100%;
+                gap: 2rem;
+            }
+            .side-selector a {
+                writing-mode: horizontal-tb;
+                transform: none;
+                padding: 5px 0;
+                border-left: none;
+                border-bottom: 1px solid transparent;
+            }
+            .side-selector a.active {
+                border-left: none;
+                border-bottom: 1px solid var(--text-color);
+            }
+            .container { padding: 2rem 10% 5%; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="dropdown">
-            <button class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="menu-icon"><span></span><span></span><span></span></button>
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
                 <a href="collection.html">Browse Collection</a>
@@ -127,6 +179,11 @@
         <a href="index.html" class="logo">lau4baak6</a>
         <div style="width: 45px;"></div>
     </header>
+
+    <nav class="side-selector">
+        <a href="collection.html" class="active">2025 Collection</a>
+        <a href="collection2026.html">2026 Collection</a>
+    </nav>
 
     <div class="container">
         <h1>The Scents of Space</h1>
@@ -143,18 +200,17 @@
         </div>
 
         <div class="grid">
-            
             <div class="product-card">
                 <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/590429878_18116629342600701_4706383190236115472_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=Mzc4OTU5MDU1NDY2NjQxOTYzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5oZHIuQzMifQ%3D%3D&_nc_ohc=JYQG0eyVGQMQ7kNvwEbgXLh&_nc_oc=AdmdQtRFqGXjG0tY3qnSpd4d3fCJtzFdbU2JoCfcfvkLUI6sZl8VrsyMVKZRp9ZEYkA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_gid=VFRJTFLTJVt6dgCl7GhsnA&oh=00_AfqXplSSy_ITfDEpvGITYul5nOo2dTp3Sojilid5ClEoZQ&oe=6982CB34" alt="Clementine Noel" class="product-image">
                 <h3>Clementine Noel</h3>
-                <p>2025 Christmas Special</p>
+                <p>Christmas Special</p>
                 <p>黃玉蘭、甜橙、花梨木</p>
             </div>
 
             <div class="product-card">
                 <div class="product-image">Oceanic Waves</div>
                 <h3>Oceanic Waves</h3>
-                <p>2025 Christmas Special</p>
+                <p>Christmas Special</p>
             </div>
 
             <div class="product-card">
@@ -168,7 +224,6 @@
                 <h3>02: Velvet Rose</h3>
                 <p>Peppermint, Rose, Sandalwood</p>
             </div>
-
         </div>
     </div>
 
