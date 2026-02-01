@@ -24,105 +24,43 @@
             z-index: 1000; 
         }
 
-        /* Dropdown Menu Styling */
         .dropdown { position: relative; display: inline-block; }
-        .menu-icon {
-            background: none; border: none; cursor: pointer; padding: 10px;
-            display: flex; flex-direction: column; gap: 5px;
-        }
-        .menu-icon span {
-            display: block; width: 25px; height: 1px;
-            background-color: var(--text-color); transition: 0.3s;
-        }
-        .dropdown-content {
-            display: none; position: absolute; top: 100%; left: 0;
-            background-color: var(--bg-color); min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05); z-index: 1; padding: 1rem 0;
-        }
-        .dropdown-content a {
-            color: var(--text-color); padding: 12px 24px; text-decoration: none;
-            display: block; font-size: 0.9rem; letter-spacing: 0.1rem; transition: 0.3s;
-        }
-        .dropdown-content a:hover { background-color: #f0efeb; color: var(--accent-color); }
+        .menu-icon { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
+        .menu-icon span { display: block; width: 25px; height: 1px; background-color: var(--text-color); transition: 0.3s; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-color); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05); z-index: 1; padding: 1rem 0; }
+        .dropdown-content a { color: var(--text-color); padding: 12px 24px; text-decoration: none; display: block; font-size: 0.9rem; letter-spacing: 0.1rem; }
+        .dropdown-content a:hover { background-color: #f0efeb; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        .logo { 
-            font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500;
-            text-transform: uppercase; text-decoration: none; color: var(--text-color);
-            position: absolute; left: 50%; transform: translateX(-50%);
+        .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
+
+        .story-wrapper { padding: 12rem 10% 8rem; max-width: 800px; margin: 0 auto; text-align: center; }
+        .brand-quote { font-family: 'Noto Serif TC', serif; font-size: 1.6rem; letter-spacing: 0.5rem; margin-bottom: 4rem; font-weight: 300; line-height: 2.5; }
+        .brand-mission { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; color: var(--accent-color); margin-bottom: 5rem; }
+
+        .divider { height: 60px; width: 1px; background-color: var(--text-color); margin: 0 auto 3rem; opacity: 0.3; }
+
+        /* Scroll Fade Effect Styling */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            will-change: opacity, transform;
         }
 
-        .story-wrapper {
-            padding: 12rem 10% 8rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .fade-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .brand-quote {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.6rem;
-            letter-spacing: 0.5rem;
-            margin-bottom: 4rem;
-            font-weight: 300;
-            line-height: 2.5;
-            color: var(--text-color);
-        }
+        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.3rem; margin-bottom: 2rem; }
+        .sustainability-text { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; color: var(--accent-color); max-width: 600px; margin: 0 auto; }
 
-        .brand-mission, .sustainability-text {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            letter-spacing: 0.1rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .section-title {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3rem;
-            color: var(--text-color);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .divider {
-            height: 60px;
-            width: 1px;
-            background-color: var(--text-color);
-            margin: 0 auto 3rem;
-            opacity: 0.3;
-        }
-
-        .nav-container { 
-            display: flex; 
-            gap: 2rem; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            margin-top: 4rem;
-        }
-
-        .nav-box {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--text-color);
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.85rem;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            min-width: 220px;
-        }
-
+        .nav-container { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 6rem; }
+        .nav-box { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--text-color); text-decoration: none; color: var(--text-color); font-size: 0.85rem; letter-spacing: 0.2rem; text-transform: uppercase; transition: all 0.4s ease; min-width: 220px; }
         .nav-box:hover { background-color: var(--text-color); color: white; }
 
-        @media (max-width: 600px) {
-            .nav-container { flex-direction: column; align-items: center; }
-            .nav-box { width: 80%; }
-        }
-
+        @media (max-width: 600px) { .nav-container { flex-direction: column; align-items: center; } .nav-box { width: 80%; } }
         footer { text-align: center; padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
     </style>
 </head>
@@ -130,9 +68,7 @@
 
     <header>
         <div class="dropdown">
-            <button class="menu-icon">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="menu-icon"><span></span><span></span><span></span></button>
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
                 <a href="collection.html">Browse Collection</a>
@@ -146,28 +82,22 @@
 
     <div class="story-wrapper">
         <div class="divider"></div>
-        
         <div class="brand-quote">
-            生活不必填滿每一刻<br>
-            留下一片空白<br>
-            讓光影與香氣流動<br>
-            在靜謐之中<br>
-            感受時光<br>
-            感受自己
+            生活不必填滿每一刻<br>留下一片空白<br>讓光影與香氣流動<br>在靜謐之中<br>感受時光<br>感受自己
         </div>
-
         <div class="divider" style="height: 30px;"></div>
-
         <div class="brand-mission">
             我們是源自香港的手工蠟燭品牌，致力於將藝術靈感與簡約美學融入生活。主打環保沙蠟，我們積極與本土品牌合作，在推廣環保與循環重用理念的同時，為您的空間營造一份純粹的靜謐感。
         </div>
 
         <div class="divider" style="height: 30px; opacity: 0.1;"></div>
 
-        <h2 class="section-title">Sustainable Spirit</h2>
-        <div class="sustainability-text">
-            我們深信美學與環保並行。為了給地球出一分力，我們嚴選純天然精油，確保香氣純粹且對環境友善。由產品到包裝，我們均採用環保及可再造物料，竭力減少碳排放。<br><br>
-            在2026，留白生活將推出專屬環保推廣計劃，積極推動廢物重用與回收理念，邀請您與我們一起，在享受生活的同時，守護這片土地。
+        <div class="fade-section" id="sustainable-spirit">
+            <h2 class="section-title">Sustainable Spirit</h2>
+            <div class="sustainability-text">
+                我們深信美學與環保並行。為了給地球出一分力，我們嚴選純天然精油，確保香氣純粹且對環境友善。由產品到包裝，我們均採用環保及可再造物料，竭力減少碳排放。<br><br>
+                未來，lau4baak6 將推出專屬環保企劃（Campaign），積極推動廢物重用與回收理念，邀請您與我們一起，在享受生活的同時，守護這片土地。
+            </div>
         </div>
 
         <div class="nav-container">
@@ -177,6 +107,28 @@
     </div>
 
     <footer>&copy; 2026 lau4baak6 留白生活</footer>
+
+    <script>
+        // Setup the observer to watch the section
+        const observerOptions = {
+            root: null, // use viewport
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Apply observer to the section
+        const fadeTarget = document.querySelector('#sustainable-spirit');
+        observer.observe(fadeTarget);
+    </script>
 
 </body>
 </html>
