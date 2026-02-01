@@ -42,8 +42,15 @@
         .hero h1 { font-family: 'Noto Serif TC', serif; font-size: 2.5rem; font-weight: 300; letter-spacing: 0.8rem; margin-bottom: 1rem; }
         .hero p { font-size: 1rem; color: var(--accent-color); letter-spacing: 0.2rem; margin-bottom: 3rem; }
 
-        /* Navigation Boxes */
-        .nav-container { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        /* Navigation Container - Forces Vertical Stack */
+        .nav-container { 
+            display: flex; 
+            flex-direction: column; /* This keeps them stacked */
+            gap: 1.5rem; 
+            align-items: center; 
+            width: 100%;
+        }
+
         .nav-box {
             display: inline-block;
             padding: 1.2rem 3rem;
@@ -54,7 +61,8 @@
             letter-spacing: 0.2rem;
             text-transform: uppercase;
             transition: all 0.4s ease;
-            min-width: 220px;
+            width: 280px; /* Fixed width for symmetry */
+            text-align: center;
         }
         .nav-box:hover { background-color: var(--text-color); color: white; }
 
@@ -62,8 +70,7 @@
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 1.8rem; letter-spacing: 0.5rem; }
-            .nav-container { flex-direction: column; width: 80%; }
-            .nav-box { text-align: center; width: 100%; }
+            .nav-box { width: 85%; }
         }
     </style>
 </head>
