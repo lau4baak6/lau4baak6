@@ -69,15 +69,22 @@
             color: var(--text-color);
         }
 
-        .brand-mission {
+        .brand-mission, .sustainability-text {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.1rem;
             color: var(--accent-color);
-            margin-bottom: 5rem;
             letter-spacing: 0.1rem;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 3rem;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
 
         .divider {
@@ -88,22 +95,32 @@
             opacity: 0.3;
         }
 
-        .cta-button { 
-            display: inline-block; 
-            padding: 1rem 2.5rem; 
-            border: 1px solid var(--text-color); 
-            text-decoration: none; 
-            color: var(--text-color); 
-            transition: all 0.3s ease; 
-            font-size: 0.9rem;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            margin-top: 2rem;
+        .nav-container { 
+            display: flex; 
+            gap: 2rem; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 4rem;
         }
 
-        .cta-button:hover { 
-            background-color: var(--text-color); 
-            color: white; 
+        .nav-box {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--text-color);
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            min-width: 220px;
+        }
+
+        .nav-box:hover { background-color: var(--text-color); color: white; }
+
+        @media (max-width: 600px) {
+            .nav-container { flex-direction: column; align-items: center; }
+            .nav-box { width: 80%; }
         }
 
         footer { text-align: center; padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
@@ -114,9 +131,7 @@
     <header>
         <div class="dropdown">
             <button class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
@@ -147,7 +162,18 @@
             我們是源自香港的手工蠟燭品牌，致力於將藝術靈感與簡約美學融入生活。主打環保沙蠟，我們積極與本土品牌合作，在推廣環保與循環重用理念的同時，為您的空間營造一份純粹的靜謐感。
         </div>
 
-        <a href="collection.html" class="cta-button">Browse Collection</a>
+        <div class="divider" style="height: 30px; opacity: 0.1;"></div>
+
+        <h2 class="section-title">Sustainable Spirit</h2>
+        <div class="sustainability-text">
+            我們深信美學與環保並行。為了給地球出一分力，我們嚴選純天然精油，確保香氣純粹且對環境友善。由產品到包裝，我們均採用環保及可再造物料，竭力減少碳排放。<br><br>
+            在2026，留白生活將推出專屬環保推廣計劃，積極推動廢物重用與回收理念，邀請您與我們一起，在享受生活的同時，守護這片土地。
+        </div>
+
+        <div class="nav-container">
+            <a href="collection.html" class="nav-box">Browse Collection</a>
+            <a href="https://instagram.com/lau4baak6" target="_blank" class="nav-box">Order Now</a>
+        </div>
     </div>
 
     <footer>&copy; 2026 lau4baak6 留白生活</footer>
