@@ -43,9 +43,10 @@
         /* Scroll Fade Effect Styling */
         .fade-section {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
             will-change: opacity, transform;
+            margin-bottom: 4rem;
         }
 
         .fade-section.is-visible {
@@ -53,14 +54,13 @@
             transform: translateY(0);
         }
 
-        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.3rem; margin-bottom: 2rem; }
+        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.3rem; margin-bottom: 2rem; font-weight: 400; }
         .sustainability-text { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; color: var(--accent-color); max-width: 600px; margin: 0 auto; }
 
-        .nav-container { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 6rem; }
-        .nav-box { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--text-color); text-decoration: none; color: var(--text-color); font-size: 0.85rem; letter-spacing: 0.2rem; text-transform: uppercase; transition: all 0.4s ease; min-width: 220px; }
+        .nav-container { display: flex; justify-content: center; margin-top: 2rem; }
+        .nav-box { display: inline-block; padding: 1rem 3.5rem; border: 1px solid var(--text-color); text-decoration: none; color: var(--text-color); font-size: 0.85rem; letter-spacing: 0.2rem; text-transform: uppercase; transition: all 0.4s ease; }
         .nav-box:hover { background-color: var(--text-color); color: white; }
 
-        @media (max-width: 600px) { .nav-container { flex-direction: column; align-items: center; } .nav-box { width: 80%; } }
         footer { text-align: center; padding: 4rem; font-size: 0.8rem; color: var(--accent-color); }
     </style>
 </head>
@@ -92,27 +92,27 @@
 
         <div class="divider" style="height: 30px; opacity: 0.1;"></div>
 
-        <div class="fade-section" id="sustainable-spirit">
+        <div class="fade-section">
             <h2 class="section-title">Sustainable Spirit</h2>
             <div class="sustainability-text">
                 我們深信美學與環保並行。為了給地球出一分力，我們嚴選純天然精油，確保香氣純粹且對環境友善。由產品到包裝，我們均採用環保及可再造物料，竭力減少碳排放。<br><br>
-                未來，lau4baak6 將推出專屬環保企劃（Campaign），積極推動廢物重用與回收理念，邀請您與我們一起，在享受生活的同時，守護這片土地。
+                於2026年，我們將推出會員專屬環保推廣計劃，積極推動廢物重用與回收理念。誠邀您與我們一起，在享受生活的同時，守護這片土地。
             </div>
         </div>
 
-        <div class="nav-container">
-            <a href="collection.html" class="nav-box">Browse Collection</a>
-            <a href="https://instagram.com/lau4baak6" target="_blank" class="nav-box">Order Now</a>
+        <div class="fade-section">
+            <div class="nav-container">
+                <a href="collection.html" class="nav-box">Browse Collection</a>
+            </div>
         </div>
     </div>
 
     <footer>&copy; 2026 lau4baak6 留白生活</footer>
 
     <script>
-        // Setup the observer to watch the section
         const observerOptions = {
-            root: null, // use viewport
-            threshold: 0.1 // trigger when 10% of the element is visible
+            root: null,
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -125,9 +125,9 @@
             });
         }, observerOptions);
 
-        // Apply observer to the section
-        const fadeTarget = document.querySelector('#sustainable-spirit');
-        observer.observe(fadeTarget);
+        // This now targets ALL elements with the .fade-section class
+        const fadeTargets = document.querySelectorAll('.fade-section');
+        fadeTargets.forEach(target => observer.observe(target));
     </script>
 
 </body>
