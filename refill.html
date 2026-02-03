@@ -35,7 +35,7 @@
 
         .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
 
-        /* Sidebar Navigation */
+        /* Sidebar Navigation - Positioned under Menu */
         .sidebar {
             position: fixed;
             left: 5%;
@@ -97,8 +97,29 @@
 
         footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); }
 
+        /* FIXED MOBILE VIEW */
         @media (max-width: 900px) {
-            .sidebar { position: static; transform: none; flex-direction: row; writing-mode: horizontal-tb; justify-content: center; margin-bottom: 3rem; padding-top: 10rem; }
+            .sidebar { 
+                position: relative; 
+                transform: none; 
+                flex-direction: row; 
+                left: 0;
+                top: 0;
+                justify-content: center; 
+                margin-bottom: 1rem; 
+                padding-top: 9rem; 
+                width: 100%;
+                gap: 2rem;
+            }
+            .sidebar a { 
+                writing-mode: horizontal-tb; /* Fix: Makes text horizontal again */
+                padding-bottom: 5px; 
+            }
+            .sidebar a.active { 
+                border-left: none; 
+                border-bottom: 1px solid var(--text-color); 
+                padding-left: 0; 
+            }
             .container { padding: 2rem 5%; text-align: center; }
             .product-flex { justify-content: center; text-align: center; }
             .info-row { justify-content: center; gap: 2rem; }
@@ -114,7 +135,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
-                <a href="refill.html">Browse Collection</a>
+                <a href="collection.html">Browse Collection</a>
                 <a href="story.html">Our Story</a>
                 <a href="contact.html">Contact Us</a>
             </div>
