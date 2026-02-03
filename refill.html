@@ -24,65 +24,66 @@
             z-index: 1000; 
         }
 
+        /* Dropdown Menu Styling */
+        .dropdown { position: relative; display: inline-block; }
+        .menu-icon { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
+        .menu-icon span { display: block; width: 25px; height: 1px; background-color: var(--text-color); transition: 0.3s; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-color); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05); z-index: 1; padding: 1rem 0; }
+        .dropdown-content a { color: var(--text-color); padding: 12px 24px; text-decoration: none; display: block; font-size: 0.9rem; letter-spacing: 0.1rem; }
+        .dropdown-content a:hover { background-color: #f0efeb; }
+        .dropdown:hover .dropdown-content { display: block; }
+
         .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
 
-        .container { padding: 10rem 10% 5%; max-width: 1000px; margin: 0 auto; text-align: center; }
-
-        /* Hyperlink Bar - Same as collection pages */
-        .collection-nav {
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 5rem;
-            padding-bottom: 1rem;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
         }
-        .collection-nav a {
+        .sidebar a {
             text-decoration: none;
             color: var(--accent-color);
-            font-size: 0.85rem;
-            letter-spacing: 0.15rem;
-            transition: 0.3s;
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
             font-family: 'Noto Serif TC', serif;
+            transition: 0.3s;
+            writing-mode: vertical-rl;
+            padding-bottom: 10px;
         }
-        .collection-nav a.active { color: var(--text-color); border-bottom: 1px solid var(--text-color); }
-        
-        /* Fade Engine */
-        .fade-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1.2s ease-out;
-            margin-bottom: 8rem;
-        }
-        .fade-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .sidebar a.active { color: var(--text-color); border-left: 1px solid var(--text-color); padding-left: 10px; }
+        .sidebar a:hover { color: var(--text-color); }
 
-        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 2rem; letter-spacing: 0.5rem; font-size: 1.6rem; }
+        .container { padding: 12rem 15% 5rem 20%; max-width: 1200px; }
         
-        .intro-box { max-width: 650px; margin: 0 auto; }
-        .intro-box p { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--accent-color); line-height: 2.2; }
+        .fade-section { opacity: 0; transform: translateY(20px); transition: all 1.2s ease-out; margin-bottom: 8rem; }
+        .fade-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .divider { height: 40px; width: 1px; background-color: var(--text-color); margin: 3rem auto; opacity: 0.2; }
+        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 3rem; letter-spacing: 0.5rem; font-size: 1.8rem; }
+        
+        .intro-text { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--accent-color); max-width: 600px; margin-bottom: 4rem; }
 
         /* Points Grid */
-        .points-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-top: 4rem; }
         .point-card h3 { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; }
-        .point-card p { font-size: 0.9rem; color: var(--accent-color); line-height: 1.8; padding: 0 1rem; }
+        .point-card p { font-size: 0.85rem; color: var(--accent-color); line-height: 1.8; }
 
-        .product-focus { margin-top: 4rem; }
-        .product-img { width: 100%; max-width: 380px; mix-blend-mode: multiply; margin-bottom: 2rem; }
+        /* Product Section */
+        .product-flex { display: flex; align-items: center; gap: 5%; margin-top: 6rem; flex-wrap: wrap; }
+        .product-img { width: 100%; max-width: 400px; mix-blend-mode: multiply; }
+        .product-info { flex: 1; min-width: 300px; text-align: left; }
         
-        .pricing { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; letter-spacing: 0.1rem; margin-bottom: 3rem; }
+        .info-row { font-family: 'Noto Serif TC', serif; border-bottom: 1px solid #eee; padding: 1rem 0; display: flex; justify-content: space-between; }
+        .info-row span { color: var(--accent-color); }
 
         .order-btn {
             display: inline-block;
+            margin-top: 3rem;
             padding: 1rem 3.5rem;
             border: 1px solid var(--text-color);
             text-decoration: none;
@@ -96,58 +97,82 @@
 
         footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); }
 
-        @media (max-width: 600px) {
-            .collection-nav { gap: 1rem; font-size: 0.75rem; }
-            .points-grid { gap: 2rem; }
+        @media (max-width: 900px) {
+            .sidebar { position: static; transform: none; flex-direction: row; writing-mode: horizontal-tb; justify-content: center; margin-bottom: 3rem; padding-top: 10rem; }
+            .container { padding: 2rem 5%; text-align: center; }
+            .product-flex { justify-content: center; text-align: center; }
+            .info-row { justify-content: center; gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="dropdown">
+            <button class="menu-icon">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="refill.html">Browse Collection</a>
+                <a href="story.html">Our Story</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
         <a href="index.html" class="logo">lau4baak6</a>
+        <div style="width: 45px;"></div>
     </header>
 
-    <div class="container">
-        <nav class="collection-nav">
-            <a href="refill.html" class="active">留白．續沙</a>
-            <a href="collection2026.html">2026 Collection</a>
-            <a href="collection.html">2025 Collection</a>
-        </nav>
+    <nav class="sidebar">
+        <a href="refill.html" class="active">留白．續沙</a>
+        <a href="collection2026.html">2026 Collection</a>
+        <a href="collection.html">2025 Collection</a>
+    </nav>
 
+    <div class="container">
         <section class="fade-section">
             <h1>讓微光延續</h1>
-            <div class="intro-box">
-                <p>
-                    我們相信，最溫柔的環保，是讓喜愛的事物更長久地陪伴。<br>
-                    與其道別，不如為鍾愛的器皿重新注入靈魂。<br><br>
-                    「留白生活」推出沙蠟回充包，專為熱愛香氛與永續生活的你而設。無需複雜的融蠟過程，只需重用你手中的玻璃杯，輕輕倒入香氛沙蠟，那道熟悉的微光，便能再次溫暖你的空間。
-                </p>
-            </div>
-            <div class="divider"></div>
-        </section>
-
-        <section class="fade-section">
-            <div class="points-grid">
+            <p class="intro-text">
+                我們相信，最溫柔的環保，是讓喜愛的事物更長久地陪伴。與其道別，不如為鍾愛的器皿重新注入靈魂。<br><br>
+                「留白生活」推出沙蠟回充包，只需重用你手中的容器，倒入香氛沙蠟，那道熟悉的微光，便能再次溫暖你的空間。
+            </p>
+            
+            <div class="grid">
                 <div class="point-card">
                     <h3>容器續用</h3>
-                    <p>留住你最愛的「留白」容器，減少 80% 的包裝廢棄，讓美感循環不息。</p>
+                    <p>留住最愛的「留白」容器，減少 80% 包裝廢棄。</p>
                 </div>
                 <div class="point-card">
                     <h3>極致簡單</h3>
-                    <p>如撒入星沙般純粹，隨心調整燭芯位置，隨時更換你喜愛的季節香氣。</p>
+                    <p>如撒入星沙般純粹，隨時更換你喜愛的季節香氣。</p>
                 </div>
                 <div class="point-card">
                     <h3>友善價格</h3>
-                    <p>省去瓶器與繁瑣包裝的成本，我們將這份心意直接回饋給熱愛環保的你。</p>
+                    <p>省去瓶器成本，將這份心意直接回饋予你。</p>
+                </div>
+                <div class="point-card">
+                    <h3>延續生命</h3>
+                    <p>透過回充，讓每一個玻璃器皿在火光中重生。</p>
                 </div>
             </div>
         </section>
 
-        <section class="fade-section product-focus">
-            <img src="REPLACE_WITH_IMAGE_URL" alt="Refill Pack" class="product-img">
-            <p class="pricing">．價格：視乎香氣配方而定，歡迎 DM 查詢詳情。</p>
-            <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">DM to Order</a>
+        <section class="fade-section product-flex">
+            <img src="https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1000&auto=format&fit=crop" alt="Refill Pack" class="product-img">
+            <div class="product-info">
+                <div class="info-row">
+                    <b>重量 Weight</b>
+                    <span>80g</span>
+                </div>
+                <div class="info-row">
+                    <b>價格 Price</b>
+                    <span>$80 HKD</span>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--accent-color);">
+                    * 香氣配方均為純天然精油，請 DM 查詢味道詳情。
+                </p>
+                <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">DM to Order</a>
+            </div>
         </section>
     </div>
 
@@ -156,14 +181,10 @@
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                } else {
-                    entry.target.classList.remove('is-visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                else entry.target.classList.remove('is-visible');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
     </script>
 </body>
