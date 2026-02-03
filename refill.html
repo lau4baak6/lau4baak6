@@ -10,7 +10,7 @@
     <style>
         :root { --bg-color: #f9f8f5; --text-color: #2c2c2c; --accent-color: #8c8c8c; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', 'Noto Serif TC', serif; line-height: 2; overflow-x: hidden; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', 'Noto Serif TC', serif; line-height: 2; }
         
         header { 
             padding: 2rem 5%; 
@@ -26,13 +26,13 @@
 
         .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
 
-        .container { padding: 10rem 10% 5%; max-width: 800px; margin: 0 auto; text-align: center; }
+        .container { padding: 10rem 10% 5%; max-width: 1000px; margin: 0 auto; text-align: center; }
 
-        /* Secondary Navigation Bar */
+        /* Hyperlink Bar - Same as collection pages */
         .collection-nav {
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
             margin-bottom: 5rem;
             padding-bottom: 1rem;
         }
@@ -43,68 +43,62 @@
             letter-spacing: 0.15rem;
             transition: 0.3s;
             font-family: 'Noto Serif TC', serif;
-            position: relative;
         }
-        .collection-nav a.active { color: var(--text-color); }
-        .collection-nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 1px;
-            background-color: var(--text-color);
-        }
-
-        /* Fade Animation Engine */
+        .collection-nav a.active { color: var(--text-color); border-bottom: 1px solid var(--text-color); }
+        
+        /* Fade Engine */
         .fade-section {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-bottom: 10rem;
+            transform: translateY(20px);
+            transition: all 1.2s ease-out;
+            margin-bottom: 8rem;
         }
         .fade-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 2.5rem; letter-spacing: 0.5rem; font-size: 1.8rem; }
+        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 2rem; letter-spacing: 0.5rem; font-size: 1.6rem; }
         
-        .intro-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; color: var(--text-color); line-height: 2.4; text-align: center; }
-        
-        .point-box { 
-            text-align: left; 
-            display: inline-block; 
-            max-width: 450px; 
-            font-family: 'Noto Serif TC', serif;
+        .intro-box { max-width: 650px; margin: 0 auto; }
+        .intro-box p { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--accent-color); line-height: 2.2; }
+
+        .divider { height: 40px; width: 1px; background-color: var(--text-color); margin: 3rem auto; opacity: 0.2; }
+
+        /* Points Grid */
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+            margin: 4rem 0;
         }
-        .point-box p { margin-bottom: 2rem; color: var(--accent-color); }
-        .point-box b { color: var(--text-color); font-weight: 500; display: block; margin-bottom: 0.2rem; }
+        .point-card h3 { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; }
+        .point-card p { font-size: 0.9rem; color: var(--accent-color); line-height: 1.8; padding: 0 1rem; }
 
-        .product-display { margin-top: 2rem; }
-        .product-img { width: 100%; max-width: 320px; mix-blend-mode: multiply; margin-bottom: 2rem; }
+        .product-focus { margin-top: 4rem; }
+        .product-img { width: 100%; max-width: 380px; mix-blend-mode: multiply; margin-bottom: 2rem; }
         
-        .price-text { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; color: var(--text-color); margin-bottom: 3rem; }
+        .pricing { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; letter-spacing: 0.1rem; margin-bottom: 3rem; }
 
-        .dm-btn {
+        .order-btn {
             display: inline-block;
-            padding: 1.2rem 4rem;
+            padding: 1rem 3.5rem;
             border: 1px solid var(--text-color);
             text-decoration: none;
             color: var(--text-color);
             font-size: 0.8rem;
-            letter-spacing: 0.3rem;
+            letter-spacing: 0.2rem;
             text-transform: uppercase;
             transition: 0.4s;
         }
-        .dm-btn:hover { background: var(--text-color); color: white; }
+        .order-btn:hover { background: var(--text-color); color: white; }
 
-        footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); letter-spacing: 0.1rem; }
+        footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); }
 
         @media (max-width: 600px) {
-            .collection-nav { gap: 1.2rem; }
-            .collection-nav a { font-size: 0.75rem; }
+            .collection-nav { gap: 1rem; font-size: 0.75rem; }
+            .points-grid { gap: 2rem; }
         }
     </style>
 </head>
@@ -123,25 +117,37 @@
 
         <section class="fade-section">
             <h1>讓微光延續</h1>
-            <div class="intro-text">
-                我們相信，最溫柔的環保，是讓喜愛的事物更長久地陪伴。 與其道別，不如為它重新注入靈魂。<br><br>
-                留白生活推出沙蠟回充包，專為鍾愛香氛與地球的你設計。無需複雜融蠟，只需重用你手中的玻璃杯，輕輕倒入香氛沙蠟，那道熟悉的微光，便能再次溫暖你的空間。<br><br>
-                這不只是一次消費，更是一場關於永續的生活實踐。
+            <div class="intro-box">
+                <p>
+                    我們相信，最溫柔的環保，是讓喜愛的事物更長久地陪伴。<br>
+                    與其道別，不如為鍾愛的器皿重新注入靈魂。<br><br>
+                    「留白生活」推出沙蠟回充包，專為熱愛香氛與永續生活的你而設。無需複雜的融蠟過程，只需重用你手中的玻璃杯，輕輕倒入香氛沙蠟，那道熟悉的微光，便能再次溫暖你的空間。
+                </p>
             </div>
+            <div class="divider"></div>
         </section>
 
         <section class="fade-section">
-            <div class="point-box">
-                <p><b>．容器續用</b> 留住你最愛的「留白」容器，減少 80% 的包裝廢棄。</p>
-                <p><b>．極致簡單</b> 像撒入星沙般簡單，隨時更換你喜愛的香氣。</p>
-                <p><b>．友善價格</b> 減少了瓶器成本，我們將這份心意直接回饋給你。</p>
+            <div class="points-grid">
+                <div class="point-card">
+                    <h3>容器續用</h3>
+                    <p>留住你最愛的「留白」容器，減少 80% 的包裝廢棄，讓美感循環不息。</p>
+                </div>
+                <div class="point-card">
+                    <h3>極致簡單</h3>
+                    <p>如撒入星沙般純粹，隨心調整燭芯位置，隨時更換你喜愛的季節香氣。</p>
+                </div>
+                <div class="point-card">
+                    <h3>友善價格</h3>
+                    <p>省去瓶器與繁瑣包裝的成本，我們將這份心意直接回饋給熱愛環保的你。</p>
+                </div>
             </div>
         </section>
 
-        <section class="fade-section product-display">
+        <section class="fade-section product-focus">
             <img src="REPLACE_WITH_IMAGE_URL" alt="Refill Pack" class="product-img">
-            <p class="price-text">．價格：因各種味道而有所不同，請 DM 查詢。</p>
-            <a href="https://instagram.com/lau4baak6" target="_blank" class="dm-btn">Inquiry to Order</a>
+            <p class="pricing">．價格：視乎香氣配方而定，歡迎 DM 查詢詳情。</p>
+            <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">DM to Order</a>
         </section>
     </div>
 
@@ -156,7 +162,7 @@
                     entry.target.classList.remove('is-visible');
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
     </script>
