@@ -24,13 +24,11 @@
             z-index: 1000; 
         }
 
-        /* Dropdown Menu Styling */
         .dropdown { position: relative; display: inline-block; }
         .menu-icon { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
         .menu-icon span { display: block; width: 25px; height: 1px; background-color: var(--text-color); transition: 0.3s; }
         .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-color); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05); z-index: 1; padding: 1rem 0; }
-        .dropdown-content a { color: var(--text-color); padding: 12px 24px; text-decoration: none; display: block; font-size: 0.9rem; letter-spacing: 0.1rem; transition: 0.3s; }
-        .dropdown-content a:hover { background-color: #f0efeb; }
+        .dropdown-content a { color: var(--text-color); padding: 12px 24px; text-decoration: none; display: block; font-size: 0.9rem; letter-spacing: 0.1rem; }
         .dropdown:hover .dropdown-content { display: block; }
 
         .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
@@ -59,46 +57,32 @@
             text-orientation: mixed;
         }
         .sidebar a.active { color: var(--text-color); border-left: 1px solid var(--text-color); padding-left: 10px; }
-        .sidebar a:hover { color: var(--text-color); }
 
-        /* Multi-Page Container Logic */
         .container { padding: 12rem 15% 5rem 15%; max-width: 1400px; margin: 0 auto; min-height: 100vh; }
         
-        .collection-content {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-        .collection-content.active {
-            display: block;
-            opacity: 1;
-        }
+        .collection-content { display: none; opacity: 0; transition: opacity 0.8s ease-in-out; }
+        .collection-content.active { display: block; opacity: 1; }
 
-        /* Elements from Refill Page */
         .fade-section { opacity: 0; transform: translateY(20px); transition: all 1.2s ease-out; margin-bottom: 8rem; }
         .fade-section.is-visible { opacity: 1; transform: translateY(0); }
 
         h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 3rem; letter-spacing: 0.5rem; font-size: 1.8rem; text-align: center; }
         .intro-text { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--accent-color); max-width: 600px; margin: 0 auto 4rem; text-align: center; }
 
-        /* Grids for 2025/2026 */
+        /* Grids */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; text-align: center; }
         .product-card { margin-bottom: 2rem; }
         .product-image { width: 100%; max-width: 400px; aspect-ratio: 1/1; object-fit: cover; display: block; margin: 0 auto 1.5rem; filter: grayscale(10%); transition: transform 0.4s ease; }
-        .product-image:hover { transform: scale(1.03); }
-        .product-card h3 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; font-weight: 500; }
-        .product-card p { font-size: 0.9rem; color: var(--accent-color); padding: 0 1rem; line-height: 1.6; }
-
-        /* Flex Layout for Refill Section */
-        .product-flex { display: flex; align-items: center; gap: 5%; margin-top: 6rem; flex-wrap: wrap; }
-        .product-img-refill { width: 100%; max-width: 400px; mix-blend-mode: multiply; }
+        
+        /* Refill Section Flip */
+        .product-flex { display: flex; flex-direction: row-reverse; align-items: center; gap: 5%; margin-top: 6rem; flex-wrap: wrap; }
+        .product-img-refill { width: 100%; max-width: 400px; mix-blend-mode: multiply; flex: 1; }
         .product-info { flex: 1; min-width: 300px; text-align: left; }
         .info-row { font-family: 'Noto Serif TC', serif; border-bottom: 1px solid #eee; padding: 1rem 0; display: flex; justify-content: space-between; }
-        .info-row span { color: var(--accent-color); }
 
         .order-btn {
             display: inline-block;
-            margin: 3rem auto 1rem;
+            margin: 3rem 0 1rem 0;
             padding: 1rem 3.5rem;
             border: 1px solid var(--text-color);
             text-decoration: none;
@@ -117,10 +101,11 @@
             .sidebar { position: relative; transform: none; flex-direction: row; left: 0; top: 0; justify-content: center; margin-bottom: 1rem; padding-top: 9rem; width: 100%; gap: 2rem; }
             .sidebar a { writing-mode: horizontal-tb; padding-bottom: 5px; }
             .sidebar a.active { border-left: none; border-bottom: 1px solid var(--text-color); padding-left: 0; }
-            .container { padding: 2rem 5%; text-align: center; }
-            .product-flex { justify-content: center; text-align: center; }
+            .container { padding: 2rem 5%; }
+            .product-flex { flex-direction: column; text-align: center; }
+            .product-info { text-align: center; width: 100%; }
             .info-row { justify-content: center; gap: 2rem; }
-            .intro-text { text-align: center; }
+            .order-btn { margin: 3rem auto 1rem; }
         }
     </style>
 </head>
@@ -141,67 +126,14 @@
     </header>
 
     <nav class="sidebar">
-        <a onclick="switchCollection('refill')" id="btn-refill">留白．續沙</a>
+        <a onclick="switchCollection('refill')" id="btn-refill" class="active">留白．續沙</a>
+        <a onclick="switchCollection('c2025')" id="btn-c2025">2025 Collection</a>
         <a onclick="switchCollection('c2026')" id="btn-c2026">2026 Collection</a>
-        <a onclick="switchCollection('c2025')" id="btn-c2025" class="active">2025 Collection</a>
     </nav>
 
     <div class="container">
         
-        <div id="section-c2025" class="collection-content active">
-            <h1>The Scents of Space</h1>
-            <div class="intro-text">
-                我們選用安全性高的沙蠟，其顆粒性質令清潔變得極為方便，即使意外打瀉亦能輕易處理。您可以根據個人喜好隨意修剪燭芯長度，自由掌控燃燒時長，定義專屬於您的靜謐時光。
-            </div>
-            <div style="text-align: center;">
-                <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">Order Now</a>
-                <div class="disclaimer">*Send us a DM to Order<br>Free Local Delivery over $400 HKD</div>
-            </div>
-            <div class="grid">
-                <div class="product-card">
-                    <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/590429878_18116629342600701_4706383190236115472_n.jpg?..." alt="Clementine Noel" class="product-image">
-                    <h3>Clementine Noel</h3>
-                    <p>Christmas Special</p>
-                    <p>Magnolia champaca, Orange, Rosewood</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/611662323_18118375312600701_4487807343042182055_n.jpg?..." alt="Golden Hour" class="product-image">
-                    <h3>Golden Hour</h3>
-                    <p>Susurro Coffee Roastery x lau4baak6 Christmas Special</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/491470452_18092941882600701_4513747861355583123_n.jpg?..." alt="Blue Dream" class="product-image">
-                    <h3>01: Blue Dream</h3>
-                    <p>White Tea, Lavender, Sandalwood</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/497402043_18094519708600701_3469621715052540922_n.jpg?..." alt="Velvet Rose" class="product-image">
-                    <h3>02: Velvet Rose</h3>
-                    <p>Peppermint, Rose, Sandalwood</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://scontent-cdg4-1.cdninstagram.com/v/t51.82787-15/520231414_18100715458600701_3696455767300689826_n.jpg?..." alt="The Alps" class="product-image">
-                    <h3>The Alps</h3>
-                    <p>Lavender-scented Aroma Stone</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="section-c2026" class="collection-content">
-            <h1>2026 Collection</h1>
-            <div class="intro-text">
-                新一年的靈感正在醞釀中。隨着光影流轉，我們將延續留白美學，為您的空間帶來更多純粹的香氣故事。
-            </div>
-            <div class="grid">
-                <div class="product-card" style="opacity: 0.6;">
-                    <div class="product-image" style="background:#eee; display:flex; align-items:center; justify-content:center;">Coming Soon</div>
-                    <h3>New Chapter</h3>
-                    <p>Stay tuned for our upcoming seasonal release.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="section-refill" class="collection-content">
+        <div id="section-refill" class="collection-content active">
             <section class="fade-section">
                 <h1 style="text-align: left;">讓微光延續</h1>
                 <p class="intro-text" style="text-align: left; margin: 0 0 4rem 0;">
@@ -232,16 +164,41 @@
             </section>
 
             <section class="fade-section product-flex">
-                <img src="" alt="Refill Pack" class="product-img-refill">
+                <img src="YOUR_REFILL_IMAGE.jpg" alt="Refill Pack" class="product-img-refill">
                 <div class="product-info">
                     <div class="info-row"><b>重量</b><span>80g</span></div>
                     <div class="info-row"><b>價格</b><span>$80 HKD</span></div>
                     <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--accent-color);">
                         * 香氣配方均為純天然精油，請 DM 查詢味道詳情。
                     </p>
-                    <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn" style="margin-left:0;">DM to Order</a>
+                    <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">DM to Order</a>
                 </div>
             </section>
+        </div>
+
+        <div id="section-c2025" class="collection-content">
+            <h1>2025 Collection</h1>
+            <div class="intro-text">
+                我們選用安全性高的沙蠟，其顆粒性質令清潔變得極為方便...
+            </div>
+            <div class="grid">
+                <div class="product-card">
+                    <img src="https://scontent-cdg4-2.cdninstagram.com/..." class="product-image">
+                    <h3>Clementine Noel</h3>
+                    <p>Magnolia champaca, Orange, Rosewood</p>
+                </div>
+                </div>
+        </div>
+
+        <div id="section-c2026" class="collection-content">
+            <h1>2026 Collection</h1>
+            <div class="intro-text">新一年的靈感正在醞釀中...</div>
+            <div class="grid">
+                <div class="product-card" style="opacity: 0.6;">
+                    <div class="product-image" style="background:#eee; display:flex; align-items:center; justify-content:center;">Coming Soon</div>
+                    <h3>New Chapter</h3>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -249,29 +206,21 @@
     <footer>&copy; 2026 lau4baak6 留白生活</footer>
 
     <script>
-        // Collection Switcher Logic
         function switchCollection(id) {
-            // Hide all sections
             document.querySelectorAll('.collection-content').forEach(section => {
                 section.classList.remove('active');
             });
-            // Show target section
             document.getElementById('section-' + id).classList.add('active');
             
-            // Update Sidebar Active state
             document.querySelectorAll('.sidebar a').forEach(link => {
                 link.classList.remove('active');
             });
             document.getElementById('btn-' + id).classList.add('active');
 
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Re-trigger intersection observer for refill fade sections
             triggerObserver();
         }
 
-        // Refill Page Fade Observer
         function triggerObserver() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -281,7 +230,6 @@
             document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
         }
         
-        // Initial Trigger
         triggerObserver();
     </script>
 </body>
