@@ -74,8 +74,8 @@
         .product-card { margin-bottom: 2rem; }
         .product-image { width: 100%; max-width: 400px; aspect-ratio: 1/1; object-fit: cover; display: block; margin: 0 auto 1.5rem; filter: grayscale(10%); transition: transform 0.4s ease; }
         
-        /* Refill Section Flip */
-        .product-flex { display: flex; flex-direction: row-reverse; align-items: center; gap: 5%; margin-top: 6rem; flex-wrap: wrap; }
+        /* Refill Section - Price on Left */
+        .product-flex { display: flex; flex-direction: row; align-items: center; gap: 5%; margin-top: 6rem; flex-wrap: wrap; }
         .product-img-refill { width: 100%; max-width: 400px; mix-blend-mode: multiply; flex: 1; }
         .product-info { flex: 1; min-width: 300px; text-align: left; }
         .info-row { font-family: 'Noto Serif TC', serif; border-bottom: 1px solid #eee; padding: 1rem 0; display: flex; justify-content: space-between; }
@@ -102,7 +102,7 @@
             .sidebar a { writing-mode: horizontal-tb; padding-bottom: 5px; }
             .sidebar a.active { border-left: none; border-bottom: 1px solid var(--text-color); padding-left: 0; }
             .container { padding: 2rem 5%; }
-            .product-flex { flex-direction: column; text-align: center; }
+            .product-flex { flex-direction: column-reverse; text-align: center; }
             .product-info { text-align: center; width: 100%; }
             .info-row { justify-content: center; gap: 2rem; }
             .order-btn { margin: 3rem auto 1rem; }
@@ -164,7 +164,6 @@
             </section>
 
             <section class="fade-section product-flex">
-                <img src="YOUR_REFILL_IMAGE.jpg" alt="Refill Pack" class="product-img-refill">
                 <div class="product-info">
                     <div class="info-row"><b>重量</b><span>80g</span></div>
                     <div class="info-row"><b>價格</b><span>$80 HKD</span></div>
@@ -173,56 +172,58 @@
                     </p>
                     <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">DM to Order</a>
                 </div>
+                <img src="YOUR_REFILL_IMAGE.jpg" alt="Refill Pack" class="product-img-refill">
             </section>
         </div>
 
         <div id="section-c2025" class="collection-content">
             <h1>2025 Collection</h1>
             <div class="intro-text">
-            我們選用安全性高的沙蠟，其顆粒性質令清潔變得極為方便，即使意外打瀉亦能輕易處理。您可以根據個人喜好隨意修剪燭芯長度，自由掌控燃燒時長，定義專屬於您的靜謐時光。
+                我們選用安全性高的沙蠟，其顆粒性質令清潔變得極為方便，即使意外打瀉亦能輕易處理。您可以根據個人喜好隨意修剪燭芯長度，自由掌控燃燒時長，定義專屬於您的靜謐時光。
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">Order Now</a>
+                <div class="disclaimer">
+                    *Send us a DM to Order<br>
+                    Free Local Delivery over $400 HKD
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="product-card">
+                    <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/590429878_18116629342600701_4706383190236115472_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=Mzc4OTU5MDU1NDY2NjQxOTYzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5oZHIuQzMifQ%3D%3D&_nc_ohc=JYQG0eyVGQMQ7kNvwEbgXLh&_nc_oc=AdmdQtRFqGXjG0tY3qnSpd4d3fCJtzFdbU2JoCfcfvkLUI6sZl8VrsyMVKZRp9ZEYkA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_gid=VFRJTFLTJVt6dgCl7GhsnA&oh=00_AfqXplSSy_ITfDEpvGITYul5nOo2dTp3Sojilid5ClEoZQ&oe=6982CB34" alt="Clementine Noel" class="product-image">
+                    <h3>Clementine Noel</h3>
+                    <p>Christmas Special</p>
+                    <p>Magnolia champaca, Orange, Rosewood</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/611662323_18118375312600701_4487807343042182055_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzgwMzM3NjcwNTM1MzA5MzczMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=24MZuHj3BNQQ7kNvwGoEitP&_nc_oc=AdmKwTuM1HUC-8ptt1GS7CzEhO6Ah-SywE4zHrCuIXUWHegURKuyCdyvN6YRzLD2z6g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_gid=h3MQ-N88b0ew8_MQDCGxCg&oh=00_Aftze5bfdcS2jEUp5sJJWCVUgshTSZWPEEpJNUwP-aceig&oe=6983DB08" alt="Golden Hour" class="product-image">
+                    <h3>Golden Hour</h3>
+                    <p>Susurro Coffee Roastery x lau4baak6 Christmas Special</p>
+                    <p>Made with coffee grounds from home-roasted Papua New Guinea coffee beans.</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/491470452_18092941882600701_4513747861355583123_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=108&ig_cache_key=MzYxOTMxMjMzMjMwNjIxNjQwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQzOS5oZHIuQzMifQ%3D%3D&_nc_ohc=_vUH_8nUnc8Q7kNvwFQ8Rjo&_nc_oc=AdlfZCBfO1S1f2Y57UjcH0gxBMtBQRN4anAZcIZp6mq9LCIEutoLZhNgapfiPzEvol0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=instagram.fhkg4-1.fna&_nc_gid=IP0w2Rg1zh0HtAgdh3f_ZA&oh=00_AftEOtPD2r7LAXe99JdSTQMWU1zOba4bI8hLQx3VC83o0g&oe=698312A1" alt="Blue Dream" class="product-image">
+                    <h3>01: Blue Dream</h3>
+                    <p>White Tea, Lavender, Sandalwood</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/497402043_18094519708600701_3469621715052540922_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MzYzMTczNDc5OTE4NDMzNjc1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=gxH8hVhUZZIQ7kNvwEi6Kly&_nc_oc=Adl_ju6U-gw4Vd2hIMPnpGTo0zYHT3nTYRFmNUo-OD7X4mAMQeQFsrVUWdszrXJl-GU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fhkg4-1.fna&_nc_gid=5hUr4hVy4xFHx0cfOHyJtg&oh=00_Afv8iVNKTQfEBP4uWKL1gQdNkuFUSBT-ZirBY_oOdQV-Bg&oe=6982E801" alt="Velvet Rose" class="product-image">
+                    <h3>02: Velvet Rose</h3>
+                    <p>Peppermint, Rose, Sandalwood</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://scontent-cdg4-1.cdninstagram.com/v/t51.82787-15/520231414_18100715458600701_3696455767300689826_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=MzY4MDE3Nzc5MDExODEyOTE3Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=9_cEOZXVSnYQ7kNvwFmZeU6&_nc_oc=Admeeg1tLzHiL8t7KJckcwC3N8hV0lKVSoWhPDtTuamTgaM_jsRO8EktGN9vcw3ZbpE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-1.cdninstagram.com&_nc_gid=h3MQ-N88b0ew8_MQDCGxCg&oh=00_AfvGDnW4-K9VmsLvs04y3N9Jhp91HguFJw_pREQwe38-XQ&oe=6983D657" alt="The Alps" class="product-image">
+                    <h3>The Alps</h3>
+                    <p>Lavender-scented Aroma Stone</p>
+                </div>
+            </div>
         </div>
-
-        <a href="https://instagram.com/lau4baak6" target="_blank" class="order-btn">Order Now</a>
-        
-        <div class="disclaimer">
-            *Send us a DM to Order<br>
-            Free Local Delivery over $400 HKD
-        </div>
-
-        <div class="grid">
-            <div class="product-card">
-                <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/590429878_18116629342600701_4706383190236115472_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=Mzc4OTU5MDU1NDY2NjQxOTYzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5oZHIuQzMifQ%3D%3D&_nc_ohc=JYQG0eyVGQMQ7kNvwEbgXLh&_nc_oc=AdmdQtRFqGXjG0tY3qnSpd4d3fCJtzFdbU2JoCfcfvkLUI6sZl8VrsyMVKZRp9ZEYkA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_gid=VFRJTFLTJVt6dgCl7GhsnA&oh=00_AfqXplSSy_ITfDEpvGITYul5nOo2dTp3Sojilid5ClEoZQ&oe=6982CB34" alt="Clementine Noel" class="product-image">
-                <h3>Clementine Noel</h3>
-                <p>Christmas Special</p>
-                <p>Magnolia champaca, Orange, Rosewood</p>
-            </div>
-
-            <div class="product-card">
-                <img src="https://scontent-cdg4-2.cdninstagram.com/v/t51.82787-15/611662323_18118375312600701_4487807343042182055_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzgwMzM3NjcwNTM1MzA5MzczMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=24MZuHj3BNQQ7kNvwGoEitP&_nc_oc=AdmKwTuM1HUC-8ptt1GS7CzEhO6Ah-SywE4zHrCuIXUWHegURKuyCdyvN6YRzLD2z6g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_gid=h3MQ-N88b0ew8_MQDCGxCg&oh=00_Aftze5bfdcS2jEUp5sJJWCVUgshTSZWPEEpJNUwP-aceig&oe=6983DB08" alt="Golden Hour" class="product-image">
-                <h3>Golden Hour</h3>
-                <p>Susurro Coffee Roastery x lau4baak6 Christmas Special</p>
-                <p>Made with coffee grounds from home-roasted Papua New Guinea coffee beans.</p>
-            </div>
-
-            <div class="product-card">
-                <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/491470452_18092941882600701_4513747861355583123_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=108&ig_cache_key=MzYxOTMxMjMzMjMwNjIxNjQwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQzOS5oZHIuQzMifQ%3D%3D&_nc_ohc=_vUH_8nUnc8Q7kNvwFQ8Rjo&_nc_oc=AdlfZCBfO1S1f2Y57UjcH0gxBMtBQRN4anAZcIZp6mq9LCIEutoLZhNgapfiPzEvol0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=instagram.fhkg4-1.fna&_nc_gid=IP0w2Rg1zh0HtAgdh3f_ZA&oh=00_AftEOtPD2r7LAXe99JdSTQMWU1zOba4bI8hLQx3VC83o0g&oe=698312A1" alt="Blue Dream" class="product-image">
-                <h3>01: Blue Dream</h3>
-                <p>White Tea, Lavender, Sandalwood</p>
-            </div>
-
-            <div class="product-card">
-                <img src="https://instagram.fhkg4-1.fna.fbcdn.net/v/t51.75761-15/497402043_18094519708600701_3469621715052540922_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MzYzMTczNDc5OTE4NDMzNjc1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=gxH8hVhUZZIQ7kNvwEi6Kly&_nc_oc=Adl_ju6U-gw4Vd2hIMPnpGTo0zYHT3nTYRFmNUo-OD7X4mAMQeQFsrVUWdszrXJl-GU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fhkg4-1.fna&_nc_gid=5hUr4hVy4xFHx0cfOHyJtg&oh=00_Afv8iVNKTQfEBP4uWKL1gQdNkuFUSBT-ZirBY_oOdQV-Bg&oe=6982E801" alt="Velvet Rose" class="product-image">
-                <h3>02: Velvet Rose</h3>
-                <p>Peppermint, Rose, Sandalwood</p>
-            </div>
-
-            <div class="product-card">
-                <img src="https://scontent-cdg4-1.cdninstagram.com/v/t51.82787-15/520231414_18100715458600701_3696455767300689826_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=MzY4MDE3Nzc5MDExODEyOTE3Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=9_cEOZXVSnYQ7kNvwFmZeU6&_nc_oc=Admeeg1tLzHiL8t7KJckcwC3N8hV0lKVSoWhPDtTuamTgaM_jsRO8EktGN9vcw3ZbpE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-1.cdninstagram.com&_nc_gid=h3MQ-N88b0ew8_MQDCGxCg&oh=00_AfvGDnW4-K9VmsLvs04y3N9Jhp91HguFJw_pREQwe38-XQ&oe=6983D657" alt="The Alps" class="product-image">
-                <h3>The Alps</h3>
-                <p>Lavender-scented Aroma Stone</p>
-            </div>
-        </div>
-    </div>
 
         <div id="section-c2026" class="collection-content">
             <h1>2026 Collection</h1>
