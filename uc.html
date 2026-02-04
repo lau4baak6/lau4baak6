@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | lau4baak6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #f9f8f5; --text-color: #2c2c2c; --accent-color: #8c8c8c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', 'Noto Serif TC', serif; overflow-x: hidden; }
+        
+        /* Header & Navigation */
+        header { 
+            padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; 
+            position: fixed; width: 100%; background: rgba(249, 248, 245, 0.9); backdrop-filter: blur(5px); z-index: 1000; 
+        }
+        .dropdown { position: relative; display: inline-block; }
+        .menu-icon { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
+        .menu-icon span { display: block; width: 25px; height: 1px; background-color: var(--text-color); }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-color); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05); }
+        .dropdown-content a { color: var(--text-color); padding: 12px 24px; text-decoration: none; display: block; font-size: 0.9rem; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .logo { font-size: 1.2rem; letter-spacing: 0.3rem; font-weight: 500; text-transform: uppercase; text-decoration: none; color: var(--text-color); position: absolute; left: 50%; transform: translateX(-50%); }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 2rem; z-index: 100;
+        }
+        .sidebar a {
+            text-decoration: none; color: var(--accent-color); font-size: 0.8rem; letter-spacing: 0.2rem;
+            font-family: 'Noto Serif TC', serif; transition: 0.3s; writing-mode: vertical-rl; padding-bottom: 10px; cursor: pointer;
+        }
+        .sidebar a.active { color: var(--text-color); border-left: 1px solid var(--text-color); padding-left: 10px; }
+
+        /* Content Sections */
+        .container { padding: 12rem 10% 5rem; max-width: 1400px; margin: 0 auto; min-height: 100vh; position: relative; }
+        
+        /* The Magic: Fade Effect */
+        .collection-section {
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .collection-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 { font-family: 'Noto Serif TC', serif; font-weight: 300; margin-bottom: 2rem; letter-spacing: 0.3rem; text-align: center; }
+        .intro-text { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--accent-color); max-width: 700px; margin: 0 auto 4rem; text-align: center; line-height: 2; }
+
+        /* Grid Layout for 2025/2026 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+        .product-card { text-align: center; }
+        .product-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 1.5rem; background: #eee; }
+
+        /* Refill Specific Flex */
+        .refill-flex { display: flex; align-items: center; gap: 5%; flex-wrap: wrap; text-align: left; }
+        .refill-info { flex: 1; min-width: 300px; }
+        .info-row { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 1rem 0; font-family: 'Noto Serif TC', serif; }
+
+        .order-btn { display: inline-block; margin-top: 2rem; padding: 1rem 3rem; border: 1px solid var(--text-color); text-decoration: none; color: var(--text-color); font-size: 0.8rem; letter-spacing: 0.2rem; transition: 0.4s; }
+        .order-btn:hover { background: var(--text-color); color: white; }
+
+        footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); }
+
+        @media (max-width: 900px) {
+            .sidebar { position: relative; transform: none; flex-direction: row; writing-mode: horizontal-tb; justify-content: center; top: 0; left: 0; padding-top: 8rem; gap: 1.5rem; }
+            .sidebar a { writing-mode: horizontal-tb; padding-bottom: 5px; }
+            .sidebar a.active { border-left: none; border-bottom: 1px solid var(--text-color); padding-left: 0; }
+            .container { padding: 2rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="dropdown">
+            <button class="menu-icon"><span></span><span></span><span></span></button>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="story.html">Our Story</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+        <a href="index.html" class="logo">lau4baak6</a>
+        <div style="width: 45px;"></div>
+    </header>
+
+    <nav class="sidebar">
+        <a onclick="showSection('refill')" id="link-refill">留白．續沙</a>
+        <a onclick="showSection('c2026')" id="link-c2026">2026 Collection</a>
+        <a onclick="showSection('c2025')" id="link-c2025" class="active">2025 Collection</a>
+    </nav>
+
+    <div class="container">
+        <section id="c2025" class="collection-section active">
+            <h1>2025 Collection</h1>
+            <p class="intro-text">隨着光影流轉，我們選用安全性高的沙蠟，為您的空間帶來更多純粹的香氣故事。</p>
+            <div class="grid">
+                <div class="product-card">
+                    <img src="your-image.jpg" class="product-img">
+                    <h3>Clementine Noel</h3>
+                    <p>Magnolia champaca, Orange, Rosewood</p>
+                </div>
+                </div>
+        </section>
+
+        <section id="c2026" class="collection-section">
+            <h1>2026 Collection</h1>
+            <p class="intro-text">新一年的靈感正在醞釀中。隨着光影流轉，我們將延續留白美學。</p>
+            <div class="grid" style="opacity: 0.5;">
+                <div class="product-card">
+                    <div class="product-img" style="display:flex; align-items:center; justify-content:center;">Coming Soon</div>
+                    <h3>New Chapter</h3>
+                    <p>Stay tuned for our upcoming seasonal release.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="refill" class="collection-section">
+            <h1>讓微光延續</h1>
+            <div class="refill-flex">
+                <div class="product-img" style="flex:1; background:#eee; display:flex; align-items:center; justify-content:center;">Refill Image</div>
+                <div class="refill-info">
+                    <p style="margin-bottom: 2rem;">與其道別，不如為鍾愛的器皿重新注入靈魂。留白生活推出沙蠟回充包。</p>
+                    <div class="info-row"><b>重量</b><span>80g</span></div>
+                    <div class="info-row"><b>價格</b><span>$80 HKD</span></div>
+                    <a href="https://instagram.com/lau4baak6" class="order-btn">DM to Order</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>&copy; 2026 lau4baak6 留白生活</footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 1. Remove active class from all sections and hide them
+            const sections = document.querySelectorAll('.collection-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // 2. Remove active class from all links
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // 3. Show the selected section with fade
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+
+            // 4. Set active state on sidebar link
+            document.getElementById('link-' + sectionId).classList.add('active');
+            
+            // Optional: Scroll to top when switching
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
