@@ -97,10 +97,28 @@
 
         footer { text-align: center; padding: 4rem; font-size: 0.75rem; color: var(--accent-color); }
 
+        /* MOBILE FIXES */
         @media (max-width: 900px) {
-            .sidebar { position: relative; transform: none; flex-direction: row; left: 0; top: 0; justify-content: center; margin-bottom: 1rem; padding-top: 9rem; width: 100%; gap: 2rem; }
-            .sidebar a { writing-mode: horizontal-tb; padding-bottom: 5px; }
+            .sidebar { 
+                position: relative; 
+                transform: none; 
+                flex-direction: row; 
+                left: 0; 
+                top: 0; 
+                justify-content: center; 
+                margin: 0 auto 2rem; 
+                padding-top: 9rem; 
+                width: auto; 
+                gap: 1.2rem; /* Tightened gap */
+            }
+            .sidebar a { 
+                writing-mode: horizontal-tb; 
+                padding-bottom: 5px; 
+                font-size: 0.75rem; /* Slightly smaller for mobile fit */
+                letter-spacing: 0.1rem;
+            }
             .sidebar a.active { border-left: none; border-bottom: 1px solid var(--text-color); padding-left: 0; }
+            
             .container { padding: 2rem 5%; }
             .product-flex { flex-direction: column-reverse; text-align: center; }
             .product-info { text-align: center; width: 100%; }
@@ -166,7 +184,7 @@
             <section class="fade-section product-flex">
                 <div class="product-info">
                     <div class="info-row"><b>重量</b><span>80g</span></div>
-                    <div class="info-row"><b>價格</b><span>$50 HKD</span></div>
+                    <div class="info-row"><b>價格</b><span>$80 HKD</span></div>
                     <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--accent-color);">
                         * 香氣配方均為純天然精油，請 DM 查詢味道詳情。
                     </p>
